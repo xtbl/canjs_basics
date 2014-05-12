@@ -1,4 +1,4 @@
-canjs_tutorial
+canjs_basics
 ==============
 
 CanJS tutorial
