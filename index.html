@@ -1,14 +1,24 @@
 <html>
 <head>
-    <title>CanJS Tutorial</title>
+    <title>CanJS Basics</title>
 </head>
 <body>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+    <script src="vendor/jquery-1.11.1.js"></script>
     <script src="http://canjs.com/release/latest/can.jquery.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            
-        });
-    </script>
+	<script type="text/mustache" id="app-template">
+		<h1>{{message}}</h1>
+	</script>
+	<!-- CanJS needs a place to put your application -->
+	
+	<div id="my-app"></div>
+	<script>
+	var data = {message: "Im  a message from the data object using a mustache template!"};
+	// Pass the id of the template and the data, containing our message to can.view
+	var frag = can.view("app-template", data);
+	// load the fragment in the page
+	$("#my-app").html(frag);
+	console.log($("#my-app"));
+	console.log(data);
+	</script>
 </body>
 </html>
