@@ -8,17 +8,30 @@
 	<script type="text/mustache" id="app-template">
 		<h1>{{message}}</h1>
 	</script>
-	<!-- CanJS needs a place to put your application -->
-	
-	<div id="my-app"></div>
-	<script>
-	var data = {message: "Im  a message from the data object using a mustache template!"};
-	// Pass the id of the template and the data, containing our message to can.view
-	var frag = can.view("app-template", data);
-	// load the fragment in the page
-	$("#my-app").html(frag);
-	console.log($("#my-app"));
-	console.log(data);
+	<script type="text/mustache" id="contact-list-template">
+		<p>contact list here</p>
+		<p>{{changingMessage}}</p>
+		<button id="changeBtn">Click to change</button>
 	</script>
+	<script type="text/mustache" id="people-list-template">
+	<div id="people-list">
+		<button id="add-person-btn">Add person</button>
+		<button id="remove-person-btn">Remove person</button>
+		{{#if state.visible}}
+		<ul>
+			{{#each data.people}}
+			<li>
+				{{lastname}}, {{firstname}}
+			</li>
+			{{/each}}
+		</ul>
+		{{/if}}
+		<button id="toggle-people-list-btn">Toggle</button>
+	</div>
+	</script>
+	<!-- CanJS needs a place to put your application -->
+	<div id="my-app"></div>
+	<div id="contacts-container"></div>
+    <script src="js/app.js"></script>
 </body>
 </html>
