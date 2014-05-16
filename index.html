@@ -7,6 +7,7 @@
     <script src="http://canjs.com/release/latest/can.jquery.js"></script>
 	<script type="text/mustache" id="app-template">
 		<h1>{{message}}</h1>
+		<i>{{ createdAt }}</i>
 	</script>
 	<script type="text/mustache" id="contact-list-template">
 		<p>contact list here</p>
@@ -29,9 +30,26 @@
 		<button id="toggle-people-list-btn">Toggle</button>
 	</div>
 	</script>
+	<!-- Famous People Template -->
+	<script type="text/mustache" id="famous-people-template">
+		<ul>
+			{{#each famousPeople}}
+			<li {{data "person"}}>
+				{{lastname}}, {{firstname}}
+			</li>
+			{{/each}}
+		</ul>
+	</script>
+	<!-- People Component Template -->
+	<script type="text/mustache" id="people-component">
+		<people></people>
+	</script>
 	<!-- CanJS needs a place to put your application -->
 	<div id="my-app"></div>
 	<div id="contacts-container"></div>
+	<div id="people-container"></div>
+	<div id="famouse-people-container"></div>
+	<div id="people-component-container"></div>
     <script src="js/app.js"></script>
 </body>
 </html>
